@@ -6,18 +6,27 @@
 
 <ion-content>
   <br><br>
-  <ion-button shape="round" style="margin:15px;" color="light" routerLink="/first-page" >Back</ion-button>
-<br><br><br>
-<div style="text-align:center ;">
-  <p>Articles</p> <br>
-  
-</div>
-<div>
-  <ion-list>
+  <ion-button shape="round" style="margin:15px; width: 50px;" color="light" routerLink="/first-page" >Back</ion-button>
+<br>
+<div style="text-align: center;">
+  <ion-grid style="border:1px solid gray ;">
+    <ion-row style="border:1px solid gray ;">
+      <ion-col style="border:1px solid gray ;">
+        <a >Lavage</a>
+      </ion-col>
+      <ion-col style="border:1px solid gray ;">
+        <a >Pressage</a>
+      </ion-col>
+      <ion-col style="border:1px solid gray ;">
+        <a >Laving/Pressing</a>
+      </ion-col>
+    </ion-row>
+    <ion-list>
       <ion-item-sliding >
       <ion-item *ngFor="let item of articlee">
-        <ion-label>{{item.label}}</ion-label>
-        <ion-avatar>
+        <ion-label style="margin-right:4px;">{{item.label}}</ion-label>
+        <ion-label slot="end"  style="font-size: 10px;color: gray;">Prix :{{item.prix}} Dh</ion-label>
+        <ion-avatar slot="start">
           <img [src]="item.image" alt="">
         </ion-avatar>
       </ion-item>
@@ -25,7 +34,8 @@
         <ion-item-option (click)="unread()">Unread</ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
-      
   </ion-list>
+  </ion-grid>
+
 </div>
 </ion-content>

@@ -4,23 +4,22 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content>
-  <br> <br>
-  <ion-button shape="round" style="margin:15px;" color="light" routerLink="/first-page" >Back</ion-button>
-
-<br><br><br>
-<h3 style="text-align:center;">Already have Account ?</h3> <br><br>
-<div style="text-align:center;">
-
+<ion-content style="background-color:#F2F4F8;">
   <br>
- <input placeholder="Email" type="text" name="" id=""> <br> <br>
- <input placeholder="Password" type="password" name="" id=""> <br>
- <a href="#">Mot de pass Oublier ?</a> <br><br>
- <ion-button color="success">Login</ion-button> <br><br>
- <a href="#">Register</a> <br><br>
+  <ion-button shape="round" style="margin:15px;width: 50px;" color="light" routerLink="/first-page" >Back</ion-button>
 
-
-
+<br>
+<div style="background-color:#d4d2d5;border-radius: 10px;margin:14px;">
+  <h3 style="text-align:center;">Already have Account ?</h3> <br>
+<div style="text-align:center;">
+<img style="height: 150px;;" src="https://png.pngtree.com/png-vector/20190919/ourlarge/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1742031.jpg" alt="">
+  <br><br>
+  <!--<ion-input placeholder="Email" type="text"></ion-input>-->
+ <input style="border-radius:10px;" placeholder="Email/Tel" type="text" > <br> <br>
+ <input style="border-radius:10px;" placeholder="Password" type="password" > <br>
+ <a >Mot de pass Oublier ?</a> <br><br>
+ <ion-button routerLink="/product-menu" color="success">Login</ion-button> <br><br>
+ <a routerLink="/register" >Register</a>
+</div> <br><br>
 </div>
-
 </ion-content>
