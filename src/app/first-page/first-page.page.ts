@@ -6,9 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./first-page.page.scss'],
 })
 export class FirstPagePage implements OnInit {
-
+  
+  name ="My name is Taha Yacine"
   constructor() { }
 
+  changename()
+  {
+    this.name = "this text is changed "
+  }
   ngOnInit() {
   }
 

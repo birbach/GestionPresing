@@ -19,6 +19,14 @@ const routes: Routes = [
     path: 'first-page',
     loadChildren: () => import('./first-page/first-page.module').then( m => m.FirstPagePageModule)
   },
+  {
+    path: 'product-menu',
+    loadChildren: () => import('./product-menu/product-menu.module').then( m => m.ProductMenuPageModule)
+  },
+  {
+    path: 'article',
+    loadChildren: () => import('./article/article.module').then( m => m.ArticlePageModule)
+  },
 ];
 
 @NgModule({
