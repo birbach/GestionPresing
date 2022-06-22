@@ -7,6 +7,7 @@ import { Article } from '../article/modules/article.modul';
   styleUrls: ['./product-menu.page.scss'],
 })
 export class ProductMenuPage implements OnInit {
+  nbrachat = 0;
   articlee: Article[] = [
     {
       id: '001',

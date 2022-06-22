@@ -1,31 +1,33 @@
-<!--<ion-header>
-  <ion-toolbar>
-    <ion-title>ProductMenu</ion-title>
-  </ion-toolbar>
-</ion-header>-->
+<ion-header>
+  <br>
+  <a shape="round" style="margin:15px;text-decoration: none;" color="light" routerLink="/first-page" > < Retour</a>
+</ion-header>
 
 <ion-content>
   <br>
-  <ion-button shape="round" style="margin:15px; width: 50px;" color="light" routerLink="/first-page" >Retour</ion-button>
-<br>
 <div style="text-align: center;">
-  <ion-grid style="border:1px solid gray ;">
+  <ion-grid>
     <ion-row style="border:1px solid gray ;">
       <ion-col style="border:1px solid gray ;">
-        <a >Lavage</a>
+        <button class="menubtn">Lavage</button>
       </ion-col>
       <ion-col style="border:1px solid gray ;">
-        <a >Pressage</a>
+        <button class="menubtn">Repassage</button>
       </ion-col>
       <ion-col style="border:1px solid gray ;">
-        <a >Laving/Pressing</a>
+        <button class="menubtn">Lavage/Repassage</button>
       </ion-col>
     </ion-row>
     <ion-list style="margin: 10px;">
       <ion-item-sliding >
       <ion-item *ngFor="let item of articlee">
-        <ion-label style="margin-right:4px;">{{item.label}}</ion-label>
-        <ion-label slot="end"  style="font-size: 10px;color: gray;">Prix :{{item.prix}} Dh</ion-label>
+        <ion-label >{{item.label}}</ion-label>
+        <div >
+        <button style="border-radius: 9px;"  > + </button>
+        <label style="margin:5px;" for="achat">{{nbrachat}}</label>
+        <button style="border-radius: 9px;" > - </button>
+        </div>
+        <ion-label slot="end"  style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh</ion-label>
         <ion-avatar slot="start">
           <img [src]="item.image" alt="">
         </ion-avatar>
@@ -36,6 +38,7 @@
     </ion-item-sliding>
   </ion-list>
   </ion-grid>
+  <ion-button class="bntcheckout" >Checkout</ion-button>
 
 </div>
 </ion-content>
