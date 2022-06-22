@@ -1,43 +1,44 @@
-<!-- 
+
 <ion-content style="background-color:#F2F4F8;">
-  <br>
-  <ion-button shape="round" style="margin:15px;width: 50px;" color="light" routerLink="/first-page">Back</ion-button>
-
-  <br>
+  <br><br><br>
+  <!--<ion-button shape="round" style="margin:15px;width: 50px;" color="light" routerLink="/first-page">Back</ion-button>-->
   <form [formGroup]="loginForm" (ngSubmit)="login()">
-
-
-    <div style="background-color:#d4d2d5;border-radius: 10px;margin:14px;">
-      <h3 style="text-align:center;">Already have Account ?</h3> <br>
+    <div style="background-color:#3399ff;border-radius: 10px;margin:10px;">
+      <br>
       <div style="text-align:center;">
-        <img style="height: 150px;;"
-          src="https://png.pngtree.com/png-vector/20190919/ourlarge/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1742031.jpg"
-          alt="">
+        <img style="height: 120px;"
+          src="assets/utilisateur.png">
         <br><br>
         <div style="color: red; padding-top: 0.2rem" *ngIf="displayErreurLogin">
               Email ou Mode de passe est incorrect
         </div>
-        <input style="border-radius:10px;" placeholder="Email/Tel" formControlName="email" type="text">
-       
-        <br> <br>
-        <input style="border-radius:10px;" placeholder="Password" formControlName="password" type="password">
-        <br>
-        <a>Mot de pass Oublier ?</a>
+        <div style="padding:10px; border-radius:5px;">
+          <ion-item>
+            <ion-input name="email" type="email" placeholder="Votre@email.com" formControlName="email"></ion-input>
+          </ion-item>
+          <br>
+          <ion-item>
+            <ion-input name="password" type="password" placeholder="Mot de pass" formControlName="password"></ion-input>
+          </ion-item>
+        </div>
+        <a style="color:white;">Mot de passe Oublier ?</a>
         <br><br>
-        <ion-button  color="success" type="submit">Login</ion-button> <br><br>
-        <a routerLink="/register">Register</a>
+        <ion-button  color="light" type="submit">Connecte</ion-button> <br><br>
+        <a style="color:white;" routerLink="/register">S'inscrire</a>
       </div> <br><br>
     </div>
   </form>
-</ion-content> -->
+</ion-content> 
 
-<ion-content color="primary">
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
+<!--<ion-content >
+  
+  <form [formGroup]="loginForm" (ngSubmit)="login()" style="text-align:center;" >
     <ion-grid class="center">
       <ion-row color="primary">
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <img src="assets/in.png" style="height: 80px;" alt="">
+        <ion-col align-self-center size-md="6" size-lg="3" size-xs="12">
           <div style="text-align: center;">
-            <h3>Login</h3>
+            <h3>LOGIN</h3>
           </div>
           <br><br>
           <div style="color: red; padding-top: 0.2rem" *ngIf="displayErreurLogin">
@@ -53,17 +54,17 @@
           </div>
           <br><br>
           <div>
-            <ion-button size="large" type="submit" [disabled]="loginForm.invalid" expand="block">Login</ion-button>
+            <ion-button size="large" type="submit" [disabled]="loginForm.invalid" expand="block">Se Connecter</ion-button>
           </div>
         </ion-col>
       </ion-row>
       <div style="text-align: center;">
-        If you don't have an account, please <a style="color: white;" routerLink='/register'>
-          register</a> first!
+      <a style="text-decoration: none;" routerLink='/register'>
+          Register</a>
       </div>
     </ion-grid>
   </form>
   <ion-row>
 
   </ion-row>
-</ion-content>
+</ion-content>  -->

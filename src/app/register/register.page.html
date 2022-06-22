@@ -21,33 +21,37 @@
 </div>
 </ion-content> -->
 
-<ion-content  color="primary">
+<ion-content >
+  <br><br>
+  <ion-button routerLink="/login" style="width:60px; margin: 10px;" color="light" >Retour</ion-button>
+  <br><br> 
   <form  [formGroup]="registerFrom" (ngSubmit)="register()">
-    <ion-grid>
+    <ion-grid style="text-align: center; background-color:#3399ff; margin: 10px; border-radius: 8px;">
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
           <div >
-            <h3>Create your account!</h3>
+            <h3 style="color:white">créez votre compte</h3>
           </div>
           <div >
             <ion-item>
-              <ion-input  name="name" type="text" placeholder="Name" formControlName="name"></ion-input>
+              <ion-input  name="name" type="text" placeholder="Nom" formControlName="name"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="email" type="email" placeholder="your@email.com" formControlName="email"></ion-input>
+              <ion-input name="email" type="email" placeholder="vitre@email.com" formControlName="email"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="password" type="password" placeholder="Password" formControlName="password"></ion-input>
+              <ion-input name="password" type="password" placeholder="mot de passe" formControlName="password"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="confirm" type="password" placeholder="Password again" formControlName="confirm_password"></ion-input>
+              <ion-input name="confirm" type="password" placeholder="Retap le mot de passe " formControlName="confirm_password"></ion-input>
             </ion-item>
             <div style="color: red; padding-top: 0.2rem" *ngIf="checkPassword">
               Password incorrect
             </div>
           </div>
+          <br>
           <div >
-            <ion-button size="large" type="submit" [disabled]="registerFrom.invalid" expand="block">Register</ion-button>
+            <ion-button size="large" type="submit" [disabled]="registerFrom.invalid" expand="block">S'inscrire</ion-button>
           </div>
         </ion-col>
       </ion-row>
