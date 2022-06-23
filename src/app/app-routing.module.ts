@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./product-menu/product-menu.module').then( m => m.ProductMenuPageModule)
   },
   {
-    path: 'article',
+    path: 'articles',
     loadChildren: () => import('./article/article.module').then( m => m.ArticlePageModule)
   },
   {
@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'checkout',
     loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
+  {
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
 ];
 

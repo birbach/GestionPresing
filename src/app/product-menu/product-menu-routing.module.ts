@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: ProductMenuPage
+  },  {
+    path: 'lavage',
+    loadChildren: () => import('./lavage/lavage.module').then( m => m.LavagePageModule)
   }
+
 ];
 
 @NgModule({
