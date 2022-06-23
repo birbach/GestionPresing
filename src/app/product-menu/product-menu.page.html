@@ -4,10 +4,12 @@
     < Retour</a>
 </ion-header>
 
+
 <ion-content>
   <br>
   <div style="text-align: center;">
-    <ion-grid>
+
+    <!-- <ion-grid>
       <ion-row style="border:1px solid gray ;">
         <ion-col style="border:1px solid gray ;">
           <button class="menubtn" (click)="lavage()">Lavage</button>
@@ -19,16 +21,32 @@
           <button class="menubtn" (click)="lavageRepassage()">Lavage/Repassage</button>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    </ion-grid> -->
+    <ion-toolbar class="toolbar toolbar-md">
+      <div class="toolbar-content toolbar-content-md">
+        <ion-segment class="segment segment-md ng-valid ng-touched ng-dirty"  [(ngModel)]="type">
+          <ion-segment-button class="segment-button" role="button" (click)="lavage()" value="lavage">
+            Lavage
+          </ion-segment-button>
+          <ion-segment-button class="segment-button" role="button" (click)="repassage()">
+            Repassage
+          </ion-segment-button>
+          <ion-segment-button class="segment-button" role="button" (click)="lavageRepassage()"
+          style="width: 200px;">
+            Lavage/Repassage
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+    </ion-toolbar>
     <div *ngIf="isLavage">
       <ion-list style="margin: 10px;">
         <ion-item-sliding>
           <ion-item *ngFor="let item of articlee">
             <ion-label>{{item.label}}</ion-label>
             <div>
-              <ion-button type="submit" (click)="plus(item.id)" max="30"> + </ion-button>
+              <button type="submit" (click)="plusLavage(item.id)" max="30"> + </button>
               <label style="margin:5px;" for="achat">{{item.quantity}}</label>
-              <ion-button type="button" (click)="mois(item.id)" min="0"> - </ion-button>
+              <button *ngIf="item.quantity>0" type="button" (click)="moisLavage(item.id)" min="0"> - </button>
             </div>
             <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
             </ion-label>
@@ -49,11 +67,11 @@
           <ion-item *ngFor="let item of articlee">
             <ion-label>{{item.label}}</ion-label>
             <div>
-              <ion-button type="submit" (click)="plus(item.id)" max="30"> + </ion-button>
+              <button type="submit" (click)="plusPassage(item.id)" max="30"> + </button>
               <label style="margin:5px;" for="achat">{{item.quantity}}</label>
-              <ion-button type="button" (click)="mois(item.id)" min="0"> - </ion-button>
+              <button *ngIf="item.quantity>0" type="button" (click)="moisPassage(item)" min="0"> - </button>
             </div>
-            <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix+20}} Dh
+            <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix+15}} Dh
             </ion-label>
             <ion-avatar slot="start">
               <img [src]="item.image" alt="">
@@ -72,11 +90,11 @@
           <ion-item *ngFor="let item of articlee">
             <ion-label>{{item.label}}</ion-label>
             <div>
-              <ion-button type="submit" (click)="plus(item.id)" max="30"> + </ion-button>
+              <button type="submit" (click)="plusLavagePassage(item.id)" max="30"> + </button>
               <label style="margin:5px;" for="achat">{{item.quantity}}</label>
-              <ion-button type="button" (click)="mois(item.id)" min="0"> - </ion-button>
+              <button *ngIf="item.quantity>0" type="button" (click)="moisLavagePassage(item.id)" min="0"> - </button>
             </div>
-            <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix+40}} Dh
+            <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix+50}} Dh
             </ion-label>
             <ion-avatar slot="start">
               <img [src]="item.image" alt="">
@@ -88,6 +106,32 @@
         </ion-item-sliding>
       </ion-list>
     </div>
+
+
+
+    <!-- <div *ngIf="isLavagePassage">
+      <ion-list style="margin: 10px;">
+        <ion-item-sliding>
+          <ion-item *ngFor="let item of articlee">
+            <ion-label>{{item.label}}</ion-label>
+            <div>
+              <ion-button type="submit" (click)="plus(item.id)" max="30"> + </ion-button>
+              <label style="margin:5px;" for="achat">{{item.quantity}}</label>
+              <ion-button type="button" (click)="mois(item.id)" min="0"> - </ion-button>
+            </div>
+            <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix+40}} Dh
+            </ion-label>
+            <ion-avatar slot="start">
+              <img [src]="item.image" alt="">
+            </ion-avatar>
+          </ion-item>
+
+          <ion-item-options side="end">
+            <ion-item-option (click)="unread()">Unread</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </div> -->
     <ion-button class="bntcheckout">Checkout</ion-button>
   </div>
 </ion-content>

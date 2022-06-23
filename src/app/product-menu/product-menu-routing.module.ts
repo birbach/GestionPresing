@@ -7,9 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: ProductMenuPage
-  },  {
-    path: 'lavage',
-    loadChildren: () => import('./lavage/lavage.module').then( m => m.LavagePageModule)
+  },
+  {
+    path: 'repassage',
+    loadChildren: () => import('./repassage/repassage.module').then( m => m.RepassagePageModule)
   }
 
 ];

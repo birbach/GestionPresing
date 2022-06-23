@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../article/modules/article.modul';
+import { ArticleService } from '../services/article.service';
 
 @Component({
   selector: 'app-product-menu',
@@ -15,6 +16,7 @@ export class ProductMenuPage implements OnInit {
   // eslint-disable-next-line @typescript-eslint/ban-types
   isLavagePassage: Boolean = false;
 
+  listArticleSelectionner: any[] = [];
   articlee: Article[] = [
     {
       id: '001',
@@ -99,9 +101,13 @@ export class ProductMenuPage implements OnInit {
       image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
     }
   ];
-  constructor() { }
+
+  type = 'lavage';
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit() {
+    // this.getAllArticles();
+    // this.type='lavage';
   }
 
   unread() {
@@ -110,7 +116,7 @@ export class ProductMenuPage implements OnInit {
 
   plus(idArticle: any) {
     this.articlee.forEach(element => {
-      if(idArticle===element.id){
+      if (idArticle === element.id) {
         element.quantity++;
       }
     });
@@ -118,7 +124,7 @@ export class ProductMenuPage implements OnInit {
 
   mois(idArticle: any) {
     this.articlee.forEach(element => {
-      if(idArticle===element.id){
+      if (idArticle === element.id) {
         element.quantity--;
       }
     });
@@ -141,6 +147,55 @@ export class ProductMenuPage implements OnInit {
     this.isLavagePassage = true;
     this.isLavage = false;
     this.isPassage = false;
+  }
 
+  plusLavage(idArticle: any) {
+    this.articlee.forEach(element => {
+      if (idArticle === element.id) {
+        element.quantity++;
+        this.listArticleSelectionner.push(element);
+      }
+    });
+    console.log(this.listArticleSelectionner);
+  }
+
+  moisLavage(idArticle: any) {
+    this.articlee.forEach(element => {
+      if (idArticle === element.id) {
+        element.quantity--;
+      }
+    });
+
+    this.listArticleSelectionner.forEach((vaule, index) => {
+      if (vaule.id === idArticle) {
+        this.listArticleSelectionner.splice(index, 1);
+      }
+    });
+    console.log(this.listArticleSelectionner);
+
+  }
+
+  plusPassage(idArticle: any) {
+
+  }
+
+  moisPassage(idArticle: any) {
+
+  }
+
+  plusLavagePassage(idArticle: any) {
+
+  }
+
+  moisLavagePassage(idArticle: any) {
+
+  }
+
+  getAllArticles() {
+    this.articleService.getAllArticles().subscribe(data => {
+      console.log(data);
+    }, err => {
+
+    });
   }
 }
