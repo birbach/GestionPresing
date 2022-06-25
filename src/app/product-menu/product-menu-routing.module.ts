@@ -8,11 +8,6 @@ const routes: Routes = [
     path: '',
     component: ProductMenuPage
   },
-  {
-    path: 'repassage',
-    loadChildren: () => import('./repassage/repassage.module').then( m => m.RepassagePageModule)
-  }
-
 ];
 
 @NgModule({

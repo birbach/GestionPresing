@@ -17,6 +17,7 @@ export class ProductMenuPage implements OnInit {
   isLavagePassage: Boolean = false;
 
   listArticleSelectionner: any[] = [];
+
   articlee: Article[] = [
     {
       id: '001',
@@ -106,7 +107,7 @@ export class ProductMenuPage implements OnInit {
   constructor(private articleService: ArticleService) { }
 
   ngOnInit() {
-    // this.getAllArticles();
+    this.getAllArticles();
     // this.type='lavage';
   }
 
