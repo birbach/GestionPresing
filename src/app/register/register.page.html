@@ -23,7 +23,8 @@
 
 <ion-content >
   <br><br>
-  <ion-button routerLink="/login" style="width:60px; margin: 10px;" color="light" >Retour</ion-button>
+  <!--<ion-button routerLink="/login" style="width:60px; margin: 10px;" color="light" >Retour</ion-button>-->
+  <img routerLink="/login" style="width:45px;margin: 8px;" src="assets/goback.svg" alt="">
   <br><br> 
   <form  [formGroup]="registerFrom" (ngSubmit)="register()">
     <ion-grid style="text-align: center; background-color:#3399ff; margin: 10px; border-radius: 8px;">
@@ -32,6 +33,7 @@
           <div >
             <h3 style="color:white">créez votre compte</h3>
           </div>
+          <br>
           <div >
             <ion-item>
               <ion-input  name="name" type="text" placeholder="Nom" formControlName="name"></ion-input>

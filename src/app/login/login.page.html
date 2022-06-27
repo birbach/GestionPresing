@@ -2,6 +2,7 @@
 <ion-content style="background-color:#F2F4F8;">
   <br><br><br>
   <!--<ion-button shape="round" style="margin:15px;width: 50px;" color="light" routerLink="/first-page">Back</ion-button>-->
+  <h3 style="text-align:center;">Page de Connection</h3><br>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div style="background-color:#3399ff;border-radius: 10px;margin:10px;">
       <br>
@@ -23,9 +24,9 @@
         </div>
         <a style="color:white;">Mot de passe Oublier ?</a>
         <br><br>
-        <ion-button  color="light" type="submit">Connecte</ion-button> <br><br>
-        <a style="color:white;" routerLink="/register">S'inscrire</a>
-      </div> <br><br>
+        <ion-button style="width:70%;"  color="light" type="submit">Connecte</ion-button> <br><br>
+        <a style="color:white;text-decoration:none;" routerLink="/register">S'inscrire</a>
+      </div> <br>
     </div>
   </form>
 </ion-content> 

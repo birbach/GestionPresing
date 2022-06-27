@@ -1,13 +1,14 @@
-<ion-header>
+<!--<ion-header>
   <br>
   <a shape="round" style="margin:15px;text-decoration: none;" color="light" routerLink="/first-page">
     < Retour</a>
-</ion-header>
+</ion-header>-->
 
 
 <ion-content>
   <br>
-  <div style="text-align: center;">
+  <img style="margin-left:15px;" width="40px" src="assets/goback.svg" alt="">
+  <div style="text-align: center;margin:10px;background-color: aliceblue;">
 
     <!-- <ion-grid>
       <ion-row style="border:1px solid gray ;">
@@ -46,6 +47,7 @@
             <div>
               <button type="submit" (click)="plusLavage(item.id)" max="30"> + </button>
               <label style="margin:5px;" for="achat">{{item.quantity}}</label>
+              <!-- Make the - Button just desapear after + button click -->
               <button *ngIf="item.quantity>0" type="button" (click)="moisLavage(item.id)" min="0"> - </button>
             </div>
             <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
@@ -132,6 +134,7 @@
         </ion-item-sliding>
       </ion-list>
     </div> -->
-    <ion-button class="bntcheckout">Checkout</ion-button>
+    <ion-button class="bntcheckout">Checkout</ion-button><br><br>
   </div>
+  
 </ion-content>
