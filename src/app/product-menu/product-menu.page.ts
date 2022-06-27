@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { timer } from 'rxjs';
 import { Article } from '../article/modules/article.modul';
 import { ArticleService } from '../services/article.service';
 
@@ -16,7 +18,15 @@ export class ProductMenuPage implements OnInit {
   // eslint-disable-next-line @typescript-eslint/ban-types
   isLavagePassage: Boolean = false;
 
-  listArticleSelectionner: any[] = [];
+  allArticleSelected: any[] = [];
+
+  listArticleSelectionnerLavage: any[] = [];
+
+  listArticleSelectionnerPassage: any[] = [];
+
+  listArticleSelectionnerLavagePassage: any[] = [];
+
+
 
   articlee: Article[] = [
     {
@@ -70,7 +80,7 @@ export class ProductMenuPage implements OnInit {
     }, {
       id: '007',
       label: 'pantalon',
-      description: 'pantalon Semi-Cuir',
+      description: 'pantalon',
       prix: 15,
       quantity: 0,
       // eslint-disable-next-line max-len
@@ -78,14 +88,14 @@ export class ProductMenuPage implements OnInit {
     }, {
       id: '008',
       label: 'pantalon',
-      description: 'pantalon Cuir',
+      description: 'pantalon',
       prix: 15,
       quantity: 0,
       // eslint-disable-next-line max-len
       image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
     }, {
       id: '009',
-      label: 'Vest',
+      label: 'pantalon',
       description: 'pantalon',
       prix: 15,
       quantity: 0,
@@ -94,7 +104,7 @@ export class ProductMenuPage implements OnInit {
     }
     , {
       id: '010',
-      label: 'Cuir Vest',
+      label: 'pantalon',
       description: 'pantalon',
       prix: 15,
       quantity: 0,
@@ -104,10 +114,11 @@ export class ProductMenuPage implements OnInit {
   ];
 
   type = 'lavage';
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService,
+    private router: Router) { }
 
   ngOnInit() {
-    this.getAllArticles();
+    // this.getAllArticles();
     // this.type='lavage';
   }
 
@@ -115,21 +126,21 @@ export class ProductMenuPage implements OnInit {
 
   }
 
-  plus(idArticle: any) {
-    this.articlee.forEach(element => {
-      if (idArticle === element.id) {
-        element.quantity++;
-      }
-    });
-  }
+  // plus(idArticle: any) {
+  //   this.articlee.forEach(element => {
+  //     if (idArticle === element.id) {
+  //       element.quantity++;
+  //     }
+  //   });
+  // }
 
-  mois(idArticle: any) {
-    this.articlee.forEach(element => {
-      if (idArticle === element.id) {
-        element.quantity--;
-      }
-    });
-  }
+  // mois(idArticle: any) {
+  //   this.articlee.forEach(element => {
+  //     if (idArticle === element.id) {
+  //       element.quantity--;
+  //     }
+  //   });
+  // }
 
   lavage() {
     this.isLavage = true;
@@ -154,10 +165,10 @@ export class ProductMenuPage implements OnInit {
     this.articlee.forEach(element => {
       if (idArticle === element.id) {
         element.quantity++;
-        this.listArticleSelectionner.push(element);
+        this.listArticleSelectionnerLavage.push(element);
       }
     });
-    console.log(this.listArticleSelectionner);
+    console.log(this.listArticleSelectionnerLavage);
   }
 
   moisLavage(idArticle: any) {
@@ -167,29 +178,64 @@ export class ProductMenuPage implements OnInit {
       }
     });
 
-    this.listArticleSelectionner.forEach((vaule, index) => {
+    this.listArticleSelectionnerLavage.forEach((vaule, index) => {
       if (vaule.id === idArticle) {
-        this.listArticleSelectionner.splice(index, 1);
+        this.listArticleSelectionnerLavage.splice(index, 1);
       }
     });
-    console.log(this.listArticleSelectionner);
+    console.log(this.listArticleSelectionnerLavage);
 
   }
 
   plusPassage(idArticle: any) {
-
+    this.articlee.forEach(element => {
+      if (idArticle === element.id) {
+        element.quantity++;
+        this.listArticleSelectionnerPassage.push(element);
+      }
+    });
+    console.log(this.listArticleSelectionnerPassage);
   }
 
   moisPassage(idArticle: any) {
+    this.articlee.forEach(element => {
+      if (idArticle === element.id) {
+        element.quantity--;
+      }
+    });
+
+    this.listArticleSelectionnerPassage.forEach((vaule, index) => {
+      if (vaule.id === idArticle) {
+        this.listArticleSelectionnerPassage.splice(index, 1);
+      }
+    });
+    console.log(this.listArticleSelectionnerPassage);
 
   }
 
   plusLavagePassage(idArticle: any) {
-
+    this.articlee.forEach(element => {
+      if (idArticle === element.id) {
+        element.quantity++;
+        this.listArticleSelectionnerLavagePassage.push(element);
+      }
+    });
+    console.log(this.listArticleSelectionnerLavagePassage);
   }
 
   moisLavagePassage(idArticle: any) {
+    this.articlee.forEach(element => {
+      if (idArticle === element.id) {
+        element.quantity--;
+      }
+    });
 
+    this.listArticleSelectionnerLavagePassage.forEach((vaule, index) => {
+      if (vaule.id === idArticle) {
+        this.listArticleSelectionnerLavagePassage.splice(index, 1);
+      }
+    });
+    console.log(this.listArticleSelectionnerLavagePassage);
   }
 
   getAllArticles() {
@@ -198,5 +244,19 @@ export class ProductMenuPage implements OnInit {
     }, err => {
 
     });
+  }
+
+  checkout() {
+    // this.allArticleSelected = [];
+    // this.allArticleSelected.push(this.listArticleSelectionnerLavage);
+    // this.allArticleSelected.push(this.listArticleSelectionnerPassage);
+    // this.allArticleSelected.push(this.listArticleSelectionnerLavagePassage);
+
+    this.articleService.listArticleSelectedLavage = this.listArticleSelectionnerLavage;
+    this.articleService.listArticleSelectedPassage = this.listArticleSelectionnerPassage;
+    this.articleService.listArticleSelectedLavagePassage = this.listArticleSelectionnerLavagePassage;
+
+    this.router.navigateByUrl('/checkout');
+
   }
 }

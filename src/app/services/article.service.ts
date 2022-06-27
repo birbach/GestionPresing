@@ -8,6 +8,10 @@ import { Article } from '../article/modules/article.modul';
   providedIn: 'root'
 })
 export class ArticleService {
+
+  listArticleSelectedLavage: any[]=[];
+  listArticleSelectedPassage: any[]=[];
+  listArticleSelectedLavagePassage: any[]=[];
   // eslint-disable-next-line @typescript-eslint/naming-convention
   readonly APIURL = environment.APIURL;
 

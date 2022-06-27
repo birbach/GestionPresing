@@ -1,27 +1,50 @@
-
 <ion-content>
   <br><br>
-    <img routerLink="/product-menu" width="40px" src="assets/goback.svg" alt="">
+  <img routerLink="/product-menu" width="40px" src="assets/goback.svg" alt="">
   <ion-list>
     <!-- listArticleSelectionner -->
     <span style="color:gray;margin: 6px;">Votre achat :</span>
-    <ion-item *ngFor="">
-      <iom-avatar>
+    <ion-toolbar>
+      <ion-title size="small">LAVAGE</ion-title>
+    </ion-toolbar>
+    <ion-item *ngFor="let item of listArticleSelectedLavage">
+      <ion-avatar>
         <img [src]="item.image" alt="">
-      </iom-avatar>
+      </ion-avatar>
+      <ion-label>{{item.label}}</ion-label>
+      <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
+      </ion-label>
+    </ion-item>
+    <ion-toolbar>
+      <ion-title size="small">REPASSAGE</ion-title>
+    </ion-toolbar>
+    <ion-item *ngFor="let item of listArticleSelectedPassage">
+      <ion-avatar>
+        <img [src]="item.image" alt="">
+      </ion-avatar>
+      <ion-label>{{item.label}}</ion-label>
+      <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
+      </ion-label>
+    </ion-item>
+    <ion-toolbar>
+      <ion-title size="small">LAVAGE & REPASSAGE</ion-title>
+    </ion-toolbar>
+    <ion-item *ngFor="let item of listArticleSelectedLavagePassage">
+      <ion-avatar>
+        <img [src]="item.image" alt="">
+      </ion-avatar>
       <ion-label>{{item.label}}</ion-label>
       <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
       </ion-label>
     </ion-item>
   </ion-list>
-  <div style="text-align:center;background-color: lightgray;margin: 8px;">
-    <h5><i></i>Code de promos?</h5>
-    <ion-input placeholder="Entrez votre code Promos" type="text"></ion-input>
-  </div>
   <div style="text-align:center;background-color: lightblue;margin: 6px;">
-    <label for="">Service fee     <span>10 Dh</span></label>
-    <h6><i></i>Amount payable    <span>{{prix}}</span> </h6>
-    <ion-button >Valider votre panier</ion-button><br>
-    <ion-button style="margin:4px;" color="tertiary" >Votre Localisation</ion-button><br><br>
+    <ion-button>Valider votre panier</ion-button><br>
   </div>
+  <ion-footer collapse="fade">
+    <ion-toolbar>
+      <ion-title>PRIX TOTAL : {{prixToal}} DH</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+
 </ion-content>
