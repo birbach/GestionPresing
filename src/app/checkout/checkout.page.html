@@ -34,17 +34,20 @@
         <img [src]="item.image" alt="">
       </ion-avatar>
       <ion-label>{{item.label}}</ion-label>
-      <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
+      <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{prixToal}} Dh
       </ion-label>
     </ion-item>
   </ion-list>
-  <div style="text-align:center;background-color: lightblue;margin: 6px;">
-    <ion-button>Valider votre panier</ion-button><br>
-  </div>
   <ion-footer collapse="fade">
     <ion-toolbar>
-      <ion-title>PRIX TOTAL : {{prixToal}} DH</ion-title>
+      <div style="text-align:center;margin: 6px;">
+
+          <ion-title>PRIX TOTAL :
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>
+              {{prixToal}} DH</span></ion-title>
+        
+        <ion-button>Valider votre panier</ion-button><br><br>
+      </div>
     </ion-toolbar>
   </ion-footer>
-
 </ion-content>

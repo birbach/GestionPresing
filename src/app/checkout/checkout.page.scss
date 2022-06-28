@@ -1,8 +1,11 @@
 div{
     border-radius: 6px ;
 }
-.footer{
-  background-color: blue;
-  min-height: 10em;
-  height: auto;
+ion-footer{
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: lightskyblue; 
+  text-align: center;
 }
