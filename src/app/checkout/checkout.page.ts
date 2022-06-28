@@ -15,7 +15,7 @@ export class CheckoutPage implements OnInit {
   prixLavage: number;
   prixPassage: number;
   prixLavagePassage: number;
-  prixToal: number = 0;
+  prixToal: number;
   constructor(private articleService: ArticleService) { }
   ngOnInit() {
     this.listArticleSelectedLavage.forEach(element => {
