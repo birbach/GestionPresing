@@ -1,13 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title style="text-align:center;">Panier</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+  <br><br>
+    <img routerLink="/product-menu" width="40px" src="assets/goback.svg" alt="">
   <ion-list>
     <!-- listArticleSelectionner -->
-    <span style="color:gray;">Votre achat :</span>
+    <span style="color:gray;margin: 6px;">Votre achat :</span>
     <ion-item *ngFor="">
       <iom-avatar>
         <img [src]="item.image" alt="">
