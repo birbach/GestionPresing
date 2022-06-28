@@ -1,11 +1,62 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Collect-Livraison</ion-title>
+    <ion-title>Date(Collectation/Livraison)</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 <div>
-  
+  <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="friends">
+      <ion-label>Collecter</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="enemies">
+      <ion-label>Livraison</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 </div>
+<br>
+<div style="text-align:center;">
+  <ion-label >
+    Selectionner une date de Collectation
+  </ion-label>
+<ion-item style="margin:10px;border-radius:6px;" color="light">
+  
+   <ion-slides>
+    <br>
+    <ion-button expand="block" fill="outline"> Lundi,02,Juill</ion-button><br>
+    <ion-button expand="block" fill="outline"> Lundi,03,Juill</ion-button><br>
+    <ion-button expand="block" fill="outline"> Lundi,04,Juill</ion-button><br>
+    <ion-button expand="block" fill="outline"> Lundi,05,Juill</ion-button><br>
+    <ion-button expand="block" fill="outline"> Lundi,06,Juill</ion-button><br>
+    <br>
+   </ion-slides>
+</ion-item>
+</div>
+<div style="text-align:center;">
+  <ion-label>
+    Selectionner l'heure de Collectation
+  </ion-label><br>
+  <ion-item style="margin:10px;border-radius:6px;" color="light">
+    <ion-slides >
+      <ion-button style="width:40%;">09:00 - 10:00</ion-button>
+      <ion-button style="width:40%;"> 10:00 - 11:00</ion-button>
+      <ion-button style="width:40%;"> 11:00 - 12:00</ion-button>
+      <ion-button style="width:40%;" > 12:00 - 13:00</ion-button>
+      <ion-button style="width:40%;"> 13:00 - 14:00</ion-button>
+     </ion-slides>
+  </ion-item>
+  </div>
+  <ion-footer>
+    <ion-toolbar>
+      <div style="text-align:center;margin: 6px;">
+
+          <ion-title>PRIX TOTAL :
+             &nbsp;&nbsp;&nbsp;
+             <span>{{prixToal}} DH</span></ion-title>
+        
+        <ion-button routerLink="/my-adress">Valider votre panier</ion-button><br><br>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>
