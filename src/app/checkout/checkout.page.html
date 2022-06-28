@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Checkout</ion-title>
+    <ion-title style="text-align:center;">Panier</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <!-- listArticleSelectionner -->
+    <span style="color:gray;">Votre achat :</span>
+    <ion-item *ngFor="">
+      <iom-avatar>
+        <img [src]="item.image" alt="">
+      </iom-avatar>
+      <ion-label>{{item.label}}</ion-label>
+      <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <div style="text-align:center;background-color: lightgray;margin: 8px;">
+    <h5><i></i>Code de promos?</h5>
+    <ion-input placeholder="Entrez votre code Promos" type="text"></ion-input>
+  </div>
+  <div style="text-align:center;background-color: lightblue;margin: 6px;">
+    <label for="">Service fee     <span>10 Dh</span></label>
+    <h6><i></i>Amount payable    <span>{{prix}}</span> </h6>
+    <ion-button >Valider votre panier</ion-button><br>
+    <ion-button style="margin:4px;" color="tertiary" >Votre Localisation</ion-button><br><br>
+  </div>
 </ion-content>

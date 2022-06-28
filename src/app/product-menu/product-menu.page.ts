@@ -70,7 +70,7 @@ export class ProductMenuPage implements OnInit {
     }, {
       id: '007',
       label: 'pantalon',
-      description: 'pantalon',
+      description: 'pantalon Semi-Cuir',
       prix: 15,
       quantity: 0,
       // eslint-disable-next-line max-len
@@ -78,14 +78,14 @@ export class ProductMenuPage implements OnInit {
     }, {
       id: '008',
       label: 'pantalon',
-      description: 'pantalon',
+      description: 'pantalon Cuir',
       prix: 15,
       quantity: 0,
       // eslint-disable-next-line max-len
       image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
     }, {
       id: '009',
-      label: 'pantalon',
+      label: 'Vest',
       description: 'pantalon',
       prix: 15,
       quantity: 0,
@@ -94,7 +94,7 @@ export class ProductMenuPage implements OnInit {
     }
     , {
       id: '010',
-      label: 'pantalon',
+      label: 'Cuir Vest',
       description: 'pantalon',
       prix: 15,
       quantity: 0,
