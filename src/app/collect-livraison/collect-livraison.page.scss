@@ -1,7 +1,17 @@
 ion-slides{
-    margin:15px;
+    
 }
 ion-item{
 
-    margin:15px;
+}
+ion-footer{
+    margin:8px;
+    border-radius:5px;
+    background-color: lightskyblue;
+    position: fixed;
+    left:0;
+    bottom: 0;
+    width: 100%; 
+    text-align: center;
+     
 }
