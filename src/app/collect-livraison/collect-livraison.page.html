@@ -7,25 +7,24 @@
 <ion-content>
   <br>
   <img routerLink="/my-adress" style="margin:8px;" width="40px" src="assets/goback.svg" alt="">
-  <br><br><br>
+  <br>
 <div>
   <ion-segment (ionChange)="segmentChanged($event)">
     <ion-segment-button value="friends">
       <ion-label>Collecter</ion-label>
     </ion-segment-button>
     <ion-segment-button value="enemies">
-      <ion-label>Livrez</ion-label>
+      <ion-label>Livraison</ion-label>
     </ion-segment-button>
   </ion-segment>
 </div>
-<br>
 <div style="text-align:center;margin:10px;
             border-radius:6px;
             background-color:light;">
   <ion-label >
-    Selectionner une date de variable of picks of delivery
+    Selectionner la date et l'heur slvp
   </ion-label>
-   <ion-slides >
+   <!--  <ion-slides >  -->
     <!--  Build a loop of date days-->
     <!--  Make the button shown if clicked or not -->
      <!-- <ion-button style="width:40%;">Lundi,02,Juill</ion-button>
@@ -45,7 +44,7 @@
         <ion-label id="">Lundi,04,Juill</ion-label>
         <ion-checkbox id=""></ion-checkbox>
       </ion-item>-->
-   </ion-slides>
+   <!-- </ion-slides> -->
 </div>
 <!-- <div style="text-align:center;">
   <ion-label>
@@ -65,16 +64,16 @@
   </div>-->
    <div style="text-align:center;background-color:lightgrey;border-radius:8px;margin: 10px;">
     <br>
-    <label style="margin: 8px;" class="input-group-text" for="">pick your day : </label>
-    <input class="form-control" type="date" (change)="test($event)" [min]="minDate"/> <br><br>
-    <label style="margin: 8px;" class="input-group-text" for="">pick the time : </label>
+    <label style="margin: 8px;" class="input-group-text" for="">Choisie le Jour : </label>
+    <input class="form-control" type="date" (change)="test($event)" [min]="minDate"/> <br>
+    <label style="margin: 8px;" class="input-group-text" for="">Choisie l'heure : </label>
     <input class="form-control" type="time" name="" id="" />
-    <br><br>
+    <br>
    </div>
   <ion-footer>
     <ion-toolbar>
       <ion-label for="paiment">choisie votre methode de paiment slvp</ion-label>
-      <div style="text-align:center;margin: 6px;">
+      <div style="text-align:center;margin:4px;">
         <!--<ion-input type="radio" name="COD" id="cod">Paiement à la livraison</ion-input>
         <ion-input type="radio" name="COD" id="cod">Paiement avec Carte</ion-input>-->
         <ion-list radio-group multiselectable="false" >
@@ -83,7 +82,7 @@
             <ion-radio value="cod" ></ion-radio>
           </ion-item>
           <ion-item>
-            <ion-label>payer avec carte</ion-label>
+            <ion-label>Payer avec carte Bancaire</ion-label>
             <ion-radio value="carte"></ion-radio>
           </ion-item>
         </ion-list>
@@ -92,5 +91,5 @@
       </div>
     </ion-toolbar>
   </ion-footer>
-  <br><br>
+  <br>
 </ion-content>
