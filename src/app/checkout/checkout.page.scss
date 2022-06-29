@@ -1,6 +1,4 @@
-div{
-    border-radius: 6px ;
-}
+
 ion-footer{
   position:fixed;
   left: 0;
@@ -8,4 +6,10 @@ ion-footer{
   width: 100%;
   background-color: lightskyblue; 
   text-align: center;
+}
+.checkout{
+  background-color: lightgray;
+  border-radius:8px;
+  margin:10px;
+  padding:4px;
 }

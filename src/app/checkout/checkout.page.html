@@ -1,43 +1,45 @@
 <ion-content>
   <br><br>
   <img style="margin:6px;" routerLink="/product-menu" width="40px" src="assets/goback.svg" alt="">
-  <ion-list>
-    <!-- listArticleSelectionner -->
-    <span style="color:gray;margin: 6px;">Votre achat :</span>
-    <ion-toolbar>
-      <ion-title size="small">LAVAGE</ion-title>
-    </ion-toolbar>
-    <ion-item *ngFor="let item of listArticleSelectedLavage">
-      <ion-avatar>
-        <img [src]="item.image" alt="">
-      </ion-avatar>
-      <ion-label>{{item.label}}</ion-label>
-      <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
-      </ion-label>
-    </ion-item>
-    <ion-toolbar>
-      <ion-title size="small">REPASSAGE</ion-title>
-    </ion-toolbar>
-    <ion-item *ngFor="let item of listArticleSelectedPassage">
-      <ion-avatar>
-        <img [src]="item.image" alt="">
-      </ion-avatar>
-      <ion-label>{{item.label}}</ion-label>
-      <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
-      </ion-label>
-    </ion-item>
-    <ion-toolbar>
-      <ion-title size="small">LAVAGE & REPASSAGE</ion-title>
-    </ion-toolbar>
-    <ion-item *ngFor="let item of listArticleSelectedLavagePassage">
-      <ion-avatar>
-        <img [src]="item.image" alt="">
-      </ion-avatar>
-      <ion-label>{{item.label}}</ion-label>
-      <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{prixToal}} Dh
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <div class="checkout">
+    <ion-list >
+      <!-- listArticleSelectionner -->
+      <span style="color:gray;margin: 6px;">Votre achat :</span>
+      <ion-toolbar style="text-align:center;">
+        <ion-title size="small">LAVAGE</ion-title>
+      </ion-toolbar>
+      <ion-item *ngFor="let item of listArticleSelectedLavage">
+        <ion-avatar>
+          <img [src]="item.image" alt="">
+        </ion-avatar>
+        <ion-label>{{item.label}}</ion-label>
+        <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
+        </ion-label>
+      </ion-item>
+      <ion-toolbar style="text-align:center;">
+        <ion-title size="small">REPASSAGE</ion-title>
+      </ion-toolbar>
+      <ion-item *ngFor="let item of listArticleSelectedPassage">
+        <ion-avatar>
+          <img [src]="item.image" alt="">
+        </ion-avatar>
+        <ion-label>{{item.label}}</ion-label>
+        <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
+        </ion-label>
+      </ion-item>
+      <ion-toolbar style="text-align:center;">
+        <ion-title size="small">LAVAGE & REPASSAGE</ion-title>
+      </ion-toolbar>
+      <ion-item *ngFor="let item of listArticleSelectedLavagePassage">
+        <ion-avatar>
+          <img [src]="item.image" alt="">
+        </ion-avatar>
+        <ion-label>{{item.label}}</ion-label>
+        <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{prixToal}} Dh
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
   <ion-footer collapse="fade">
     <ion-toolbar>
       <div style="text-align:center;margin: 6px;">
@@ -46,7 +48,7 @@
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>
               {{prixToal}} DH</span></ion-title>
         
-        <ion-button routerLink="/my-adress">Valider votre panier</ion-button><br><br>
+        <ion-button color="secondary" routerLink="/my-adress">Valider votre panier</ion-button><br><br>
       </div>
     </ion-toolbar>
   </ion-footer>

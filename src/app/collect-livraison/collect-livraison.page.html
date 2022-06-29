@@ -6,7 +6,7 @@
 
 <ion-content>
   <br>
-  <img style="margin:8px;" width="40px" src="assets/goback.svg" alt="">
+  <img routerLink="/my-adress" style="margin:8px;" width="40px" src="assets/goback.svg" alt="">
   <br><br><br>
 <div>
   <ion-segment (ionChange)="segmentChanged($event)">
@@ -28,11 +28,11 @@
    <ion-slides >
     <!--  Build a loop of date days-->
     <!--  Make the button shown if clicked or not -->
-      <ion-button style="width:40%;">Lundi,02,Juill</ion-button>
+     <!-- <ion-button style="width:40%;">Lundi,02,Juill</ion-button>
       <ion-button style="width:40%;"> Lundi,03,Juill</ion-button>
       <ion-button style="width:40%;"> Lundi,04,Juill</ion-button>
       <ion-button style="width:40%;" > Lundi,05,Juill</ion-button>
-      <ion-button style="width:40%;"> Lundi,06,Juill</ion-button>
+      <ion-button style="width:40%;"> Lundi,06,Juill</ion-button>-->
       <!--<ion-item>
         <ion-label id="">Lundi,02,Juill</ion-label>
         <ion-checkbox id=""></ion-checkbox>
@@ -47,22 +47,30 @@
       </ion-item>-->
    </ion-slides>
 </div>
-<div style="text-align:center;">
+<!-- <div style="text-align:center;">
   <ion-label>
     Selectionner l'heure de variable of picks of delivery
   </ion-label><br>
   <ion-item style="margin:10px;border-radius:6px;" color="light">
-    <ion-slides >
+    <ion-slides > -->
       <!--  Build a loop of date Heurs-->
       <!--  Make the button shown if clicked or not -->
-      <ion-button style="width:40%;">09:00 - 10:00</ion-button>
+   <!--   <ion-button style="width:40%;">09:00 - 10:00</ion-button>
       <ion-button style="width:40%;"> 10:00 - 11:00</ion-button>
       <ion-button style="width:40%;"> 11:00 - 12:00</ion-button>
       <ion-button style="width:40%;" > 12:00 - 13:00</ion-button>
       <ion-button style="width:40%;"> 13:00 - 14:00</ion-button>
      </ion-slides>
   </ion-item>
-  </div>
+  </div>-->
+   <div style="text-align:center;background-color:lightgrey;border-radius:8px;margin: 10px;">
+    <br>
+    <label style="margin: 8px;" class="input-group-text" for="">pick your day : </label>
+    <input class="form-control" type="date" name="" id=""/> <br><br>
+    <label style="margin: 8px;" class="input-group-text" for="">pick the time : </label>
+    <input class="form-control" type="time" name="" id="" />
+    <br><br>
+   </div>
   <ion-footer>
     <ion-toolbar>
       <ion-label for="paiment">choisie votre methode de paiment slvp</ion-label>

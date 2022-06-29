@@ -9,6 +9,7 @@
     <ion-title style="text-align:center;">My Adress</ion-title>
   </ion-toolbar>
 <div>
+  <h6 style="text-align:center;">your Current Adress</h6>
   <ion-item style="border:2px solid lightgray;border-radius: 6px ;margin:10px;">
     <ion-avatar>
       <img src="assets/home.png" alt="">
@@ -26,10 +27,31 @@
     </ion-label>
   </ion-item>
 </div>
+<h6 style="text-align:center;">pick your Adress</h6>
+<div class="choisiville" >
+  <ion-list >
+    <ion-item class="form-control">
+      <ion-select placeholder="Select ville">
+        <ion-select-option value="Casa">CasaBlanca</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-list >
+    <ion-item class="form-control">
+      <ion-select placeholder="Select localisation">
+        <ion-select-option value="Casa">CasaBlanca</ion-select-option>
+        <ion-select-option value="Rabat">Rabat</ion-select-option>
+        <ion-select-option value="Tanger">Tanger</ion-select-option>
+        <ion-select-option value="Marakesh">Marakesh</ion-select-option>
+        <ion-select-option value="Agadir">Agadir</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list> -->
+</div>
 <div style="text-align:center;">
   <ion-footer >
-    <ion-button routerLink="/collect-livraison"  fill="outline">+ Ajouter une Adress</ion-button>
-    <br>
+    <ion-button   fill="outline">+ Ajouter une Adress</ion-button><br>
+    <ion-button routerLink="/collect-livraison" color="secondary"> Next</ion-button>
   </ion-footer>
 </div>
 
