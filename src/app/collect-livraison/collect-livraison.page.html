@@ -66,7 +66,7 @@
    <div style="text-align:center;background-color:lightgrey;border-radius:8px;margin: 10px;">
     <br>
     <label style="margin: 8px;" class="input-group-text" for="">pick your day : </label>
-    <input class="form-control" type="date" name="" id=""/> <br><br>
+    <input class="form-control" type="date" (change)="test($event)" [min]="minDate"/> <br><br>
     <label style="margin: 8px;" class="input-group-text" for="">pick the time : </label>
     <input class="form-control" type="time" name="" id="" />
     <br><br>

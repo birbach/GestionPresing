@@ -1,4 +1,5 @@
  export const marocVille = [
+
   {
     "city": "Casablanca", 
     "lat": "33.5992", 
@@ -9,7 +10,7 @@
     "capital": "admin", 
     "population": "4370000", 
     "population_proper": "4370000"
-  }, 
+  },
   {
     "city": "El Kelaa des Srarhna", 
     "lat": "32.0500", 

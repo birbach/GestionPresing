@@ -1,3 +1,4 @@
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { timer } from 'rxjs';
@@ -26,100 +27,107 @@ export class ProductMenuPage implements OnInit {
 
   listArticleSelectionnerLavagePassage: any[] = [];
 
+  articleLavage: Article[] = [];
 
+  articlePassage: Article[] = [];
 
-  articlee: Article[] = [
-    {
-      id: '001',
-      label: 'Tricot',
-      description: 'Tricot',
-      prix: 30,
-      quantity: 0,
-      // eslint-disable-next-line max-len
-      image: 'https://ae01.alicdn.com/kf/HTB1e.pMblUSMeJjy1zkq6yWmpXaz/Automne-hiver-Mens-Chandails-noir-rouge-Gris-Couleur-Tricot-Marque-V-tements-Homme-de-Tricots-Pulls.jpg_Q90.jpg_.webp',
-    }, {
-      id: '002',
-      label: 'pantalon',
-      description: 'pantalon',
-      prix: 15,
-      quantity: 0,
-      // eslint-disable-next-line max-len
-      image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
-    }, {
-      id: '003',
-      label: 'Jacket',
-      description: 'jacket-hiver',
-      prix: 55,
-      quantity: 0,
-      // eslint-disable-next-line max-len
-      image: 'https://laundry.vtlabs.dev/wp-content/uploads/2020/04/images-1-2.jpg',
-    }, {
-      id: '004',
-      label: 'Souvetment',
-      description: 'Souvetment',
-      prix: 10,
-      quantity: 0,
-      // eslint-disable-next-line max-len
-      image: 'https://laundry.vtlabs.dev/wp-content/uploads/2020/04/anthra-melange-grey-melange-resize.png',
-    }, {
-      id: '005',
-      label: 'chemise',
-      description: 'chemise-femme',
-      prix: 13,
-      quantity: 0,
-      // eslint-disable-next-line max-len
-      image: 'https://laundry.vtlabs.dev/wp-content/uploads/2020/04/product-hugerect-69117-17434-1357442618-471dcf7b2836e4a48834f72b185e810e.jpg',
-    }, {
-      id: '006',
-      label: 'pantalon',
-      description: 'pantalon',
-      prix: 15,
-      quantity: 0,
-      // eslint-disable-next-line max-len
-      image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
-    }, {
-      id: '007',
-      label: 'pantalon',
-      description: 'pantalon',
-      prix: 15,
-      quantity: 0,
-      // eslint-disable-next-line max-len
-      image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
-    }, {
-      id: '008',
-      label: 'pantalon',
-      description: 'pantalon',
-      prix: 15,
-      quantity: 0,
-      // eslint-disable-next-line max-len
-      image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
-    }, {
-      id: '009',
-      label: 'pantalon',
-      description: 'pantalon',
-      prix: 15,
-      quantity: 0,
-      // eslint-disable-next-line max-len
-      image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
-    }
-    , {
-      id: '010',
-      label: 'pantalon',
-      description: 'pantalon',
-      prix: 15,
-      quantity: 0,
-      // eslint-disable-next-line max-len
-      image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
-    }
-  ];
+  articleLavagePassage: Article[] = [];
+
+  test: Article[] = [];
+
+  articlee: any[] = [];
+  //   {
+  //     id: '001',
+  //     label: 'Tricot',
+  //     description: 'Tricot',
+  //     prix: 30,
+  //     quantity: 0,
+  // eslint-disable-next-line max-len
+  //     image: 'https://ae01.alicdn.com/kf/HTB1e.pMblUSMeJjy1zkq6yWmpXaz/Automne-hiver-Mens-Chandails-noir-rouge-Gris-Couleur-Tricot-Marque-V-tements-Homme-de-Tricots-Pulls.jpg_Q90.jpg_.webp',
+  //   }, {
+  //     id: '002',
+  //     label: 'pantalon',
+  //     description: 'pantalon',
+  //     prix: 15,
+  //     quantity: 0,
+  // eslint-disable-next-line max-len
+  //     image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
+  //   }, {
+  //     id: '003',
+  //     label: 'Jacket',
+  //     description: 'jacket-hiver',
+  //     prix: 55,
+  //     quantity: 0,
+  //     // eslint-disable-next-line max-len
+  //     image: 'https://laundry.vtlabs.dev/wp-content/uploads/2020/04/images-1-2.jpg',
+  //   }, {
+  //     id: '004',
+  //     label: 'Souvetment',
+  //     description: 'Souvetment',
+  //     prix: 10,
+  //     quantity: 0,
+  //     // eslint-disable-next-line max-len
+  //     image: 'https://laundry.vtlabs.dev/wp-content/uploads/2020/04/anthra-melange-grey-melange-resize.png',
+  //   }, {
+  //     id: '005',
+  //     label: 'chemise',
+  //     description: 'chemise-femme',
+  //     prix: 13,
+  //     quantity: 0,
+  // eslint-disable-next-line max-len
+  //     image: 'https://laundry.vtlabs.dev/wp-content/uploads/2020/04/product-hugerect-69117-17434-1357442618-471dcf7b2836e4a48834f72b185e810e.jpg',
+  //   }, {
+  //     id: '006',
+  //     label: 'pantalon',
+  //     description: 'pantalon',
+  //     prix: 15,
+  //     quantity: 0,
+  // eslint-disable-next-line max-len
+  //     image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
+  //   }, {
+  //     id: '007',
+  //     label: 'pantalon',
+  //     description: 'pantalon',
+  //     prix: 15,
+  //     quantity: 0,
+  // eslint-disable-next-line max-len
+  //     image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
+  //   }, {
+  //     id: '008',
+  //     label: 'pantalon',
+  //     description: 'pantalon',
+  //     prix: 15,
+  //     quantity: 0,
+  // eslint-disable-next-line max-len
+  //     image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
+  //   }, {
+  //     id: '009',
+  //     label: 'pantalon',
+  //     description: 'pantalon',
+  //     prix: 15,
+  //     quantity: 0,
+  // eslint-disable-next-line max-len
+  //     image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
+  //   }
+  //   , {
+  //     id: '010',
+  //     label: 'pantalon',
+  //     description: 'pantalon',
+  //     prix: 15,
+  //     quantity: 0,
+  // eslint-disable-next-line max-len
+  //     image: 'https://contents.mediadecathlon.com/p1741277/k$3ca4434b0e2725e9b874436f3b3f004f/pantalon-de-randonnee-nature-nh100-homme.jpg?&f=800x800',
+  //   }
+  // ];
 
   type = 'lavage';
   constructor(private articleService: ArticleService,
     private router: Router) { }
 
   ngOnInit() {
+    this.getArticleByService();
     // this.getAllArticles();
-    // this.type='lavage';
+
   }
 
   unread() {
@@ -162,9 +170,9 @@ export class ProductMenuPage implements OnInit {
   }
 
   plusLavage(idArticle: any) {
-    this.articlee.forEach(element => {
+    this.articleLavage.forEach(element => {
       if (idArticle === element.id) {
-        element.quantity++;
+         element.quantity++;
         this.listArticleSelectionnerLavage.push(element);
       }
     });
@@ -172,7 +180,7 @@ export class ProductMenuPage implements OnInit {
   }
 
   moisLavage(idArticle: any) {
-    this.articlee.forEach(element => {
+    this.articleLavage.forEach(element => {
       if (idArticle === element.id) {
         element.quantity--;
       }
@@ -188,9 +196,10 @@ export class ProductMenuPage implements OnInit {
   }
 
   plusPassage(idArticle: any) {
-    this.articlee.forEach(element => {
+    this.articlePassage.forEach(element => {
       if (idArticle === element.id) {
         element.quantity++;
+        console.log(element.quantity);
         this.listArticleSelectionnerPassage.push(element);
       }
     });
@@ -198,7 +207,7 @@ export class ProductMenuPage implements OnInit {
   }
 
   moisPassage(idArticle: any) {
-    this.articlee.forEach(element => {
+    this.articlePassage.forEach(element => {
       if (idArticle === element.id) {
         element.quantity--;
       }
@@ -214,7 +223,7 @@ export class ProductMenuPage implements OnInit {
   }
 
   plusLavagePassage(idArticle: any) {
-    this.articlee.forEach(element => {
+    this.articleLavagePassage.forEach(element => {
       if (idArticle === element.id) {
         element.quantity++;
         this.listArticleSelectionnerLavagePassage.push(element);
@@ -224,7 +233,7 @@ export class ProductMenuPage implements OnInit {
   }
 
   moisLavagePassage(idArticle: any) {
-    this.articlee.forEach(element => {
+    this.articleLavagePassage.forEach(element => {
       if (idArticle === element.id) {
         element.quantity--;
       }
@@ -238,12 +247,56 @@ export class ProductMenuPage implements OnInit {
     console.log(this.listArticleSelectionnerLavagePassage);
   }
 
-  getAllArticles() {
-    this.articleService.getAllArticles().subscribe(data => {
-      console.log(data);
-    }, err => {
+  // getAllArticles() {
+  //   this.articleService.getAllArticles().subscribe(data => {
+  //     this.articlee = data[0][0];
+  //     this.articlee.forEach(element => {
+  //       if (element.service_id === 1) {
+  //         this.articleLavage = element;
+  //         console.log('articleLavage',data);
+  //       }
+  //       if (element.service_id === 2) {
+  //         this.articlePassage = element;
+  //         console.log('articlePassage',data);
+  //       }
+  //       if (element.service_id === 3) {
+  //         this.articleLavagePassage = element;
+  //         console.log('articleLavagePassage',data);
+  //       }
+  //     });
+  //   }, err => {
 
+  //   });
+  // }
+
+
+  getArticleByService() {
+    this.articleService.getArticleByService(1).subscribe(data => {
+
+      this.articleLavage = Object.values(data);
+      this.articleLavage.forEach(element=>{
+        element.quantity=0;
+      });
+
+    }, err => {
     });
+
+    this.articleService.getArticleByService(2).subscribe(data => {
+      this.articlePassage = Object.values(data);
+      this.articlePassage.forEach(element=>{
+        element.quantity=0;
+      });
+    }, err => {
+    });
+
+    this.articleService.getArticleByService(3).subscribe(data => {
+      this.articleLavagePassage = Object.values(data);
+      this.articleLavagePassage.forEach(element=>{
+        element.quantity=0;
+      });
+    }, err => {
+    });
+
   }
 
   checkout() {

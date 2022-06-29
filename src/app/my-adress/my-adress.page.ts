@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {marocVille} from '../../marocmap';
+import { marocVille } from '../../marocmap';
 
 @Component({
   selector: 'app-my-adress',
@@ -7,11 +7,16 @@ import {marocVille} from '../../marocmap';
   styleUrls: ['./my-adress.page.scss'],
 })
 export class MyAdressPage implements OnInit {
-
+  villes: any[] = [];
   constructor() { }
 
   ngOnInit() {
-    console.log(marocVille);
+    this.getAllMorocccoCities();
   }
 
+  getAllMorocccoCities() {
+    marocVille.forEach(element=>{
+      this.villes.push(element);
+    });
+  }
 }
