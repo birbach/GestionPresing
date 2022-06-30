@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> <img routerLink="/collect-livraison" style="margin:8px;width: 40px;" src="assets/goback.svg" alt="">- Paiment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div>
+  <!-- <ion-card-subtitle>Achats</ion-card-subtitle> -->
+  <ion-card>
+    <ion-card-header>
+    </ion-card-header>
+    <!-- <ion-item *ngFor="let item of listArticleSelectedLavagePassage">
+      <ion-avatar>
+        <img [src]="item.image" alt="">
+      </ion-avatar>
+      <ion-label>{{item.label}}</ion-label>
+      <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{prixToal}} Dh
+      </ion-label>
+    </ion-item> -->
+    <ion-card-content>
+      <ion-card-subtitle>Article</ion-card-subtitle>
+      <ion-list>
+        <ion-item>
+          <ion-card-subtitle slot="start">Lavage :</ion-card-subtitle>
+          <ion-card-subtitle >nbr Article</ion-card-subtitle>
+          <ion-card-subtitle slot="end">Prix</ion-card-subtitle>
+        </ion-item>
+        <ion-item>
+          <ion-card-subtitle slot="start">Repassage :</ion-card-subtitle>
+          <ion-card-subtitle >nbr Article</ion-card-subtitle>
+          <ion-card-subtitle slot="end">Prix</ion-card-subtitle>
+        </ion-item>
+        <ion-item>
+          <ion-card-subtitle slot="start">Lavage et Repasasge :</ion-card-subtitle>
+          <ion-card-subtitle >nbr Article</ion-card-subtitle>
+          <ion-card-subtitle slot="end">Prix</ion-card-subtitle>
+        </ion-item>
+        <ion-item>
+          <ion-label>total</ion-label>
+          <ion-label slot="end">Prix total</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</div>
+<div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Livraison Information</ion-card-subtitle>
+      <ion-card-title></ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-card-subtitle slot="start">Name :</ion-card-subtitle>
+          <ion-card-subtitle>Salim</ion-card-subtitle>
+        </ion-item>
+        <ion-item>
+          <ion-card-subtitle slot="start">Adress :</ion-card-subtitle>
+          <ion-card-subtitle>Adress of client</ion-card-subtitle>
+        </ion-item>
+        <ion-item>
+          <ion-card-subtitle slot="start">ville</ion-card-subtitle>
+          <ion-card-subtitle>Temara</ion-card-subtitle>
+        </ion-item>
+        <ion-item>
+          <ion-card-subtitle slot="start">date de Colecter :</ion-card-subtitle>
+          <ion-card-subtitle>Date: jour et lheur selectioner</ion-card-subtitle>
+        </ion-item>
+        <ion-item>
+          <ion-card-subtitle slot="start">date de Livraison :</ion-card-subtitle>
+          <ion-card-subtitle>Date: jour et lheur selectioner</ion-card-subtitle>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</div>
+<div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Paiement Information</ion-card-subtitle>
+      <ion-card-title></ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content >
+      <!-- Just an Example of paiment methode by carte i have some erreur in my api code -->
+      <!-- <script src= "PaypalScriptjs"> </script>
+      <div id="paypal"></div> -->
+      <div style="text-align:center;">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+          <!-- Identify your business so that you can collect the payments. --> 
+          <input type="hidden" name="business" value="herschelgomez@xyzzyu.com"> 
+          <!-- Specify a Buy Now button. -->
+           <input type="hidden" name="cmd" value="_xclick">
+            <!-- Specify details about the item that buyers will purchase. -->
+             <input type="hidden" name="item_name" value="Premium Umbrella"> 
+             <input type="hidden" name="amount" value="50.00">
+              <input type="hidden" name="currency_code" value="USD">
+               <!-- Provide a drop-down menu option field. -->
+                <input type="hidden" name="on0" value="Type">Type of payment: <br /> 
+                <select class="form-control" name="os0">
+                  <option value="Select Type">-- Select Type --</option>
+                   <option value="Standard">Paypal</option>
+                    <option value="Collapsable">Master Credit Card </option>
+                    <option value="Collapsable">Visa Credit Card </option>
+                    </select>
+                     <br /> <!-- Display the payment button. -->
+                      <ion-button color="warning" type="image" name="submit"  src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="Buy Now"> <img src="assets/paypalIcon.ico" alt=""> <span> </span> Buy Now</ion-button>
+                       <img alt=""  width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+                      </form>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>
+

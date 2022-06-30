@@ -47,6 +47,10 @@ const routes: Routes = [
     path: 'collect-livraison',
     loadChildren: () => import('./collect-livraison/collect-livraison.module').then( m => m.CollectLivraisonPageModule)
   },
+  {
+    path: 'paiment',
+    loadChildren: () => import('./paiment/paiment.module').then( m => m.PaimentPageModule)
+  },
 ];
 
 @NgModule({
