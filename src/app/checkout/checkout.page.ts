@@ -23,9 +23,12 @@ export class CheckoutPage implements OnInit {
   constructor(private articleService: ArticleService) { }
   ngOnInit() {
     this.calculPrixArticlrs();
+    if(this.listArticleSelectedPassage.length<=0){
+      console.log('yes');
 
+    }
+    // console.log(this.listArticleSelectedLavage,'         ',this.listArticleSelectedPassage);
   }
-
 
   calculPrixArticlrs() {
 
@@ -60,7 +63,6 @@ export class CheckoutPage implements OnInit {
     this.prixLavagePassage.forEach(element => {
       this.prixLavagePassageTotal += Number(element);
     });
-
 
     // calculate total price of all article selected
     this.prixToal = Number(this.prixLavageTotal) + Number(this.prixPassageTotal) + Number(this.prixLavagePassageTotal);

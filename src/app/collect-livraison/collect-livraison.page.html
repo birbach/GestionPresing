@@ -1,95 +1,92 @@
-<!--<ion-header>
-  <ion-toolbar>
-    <ion-title>Date(Collectation/Livraison)</ion-title>
-  </ion-toolbar>
-</ion-header>-->
-
 <ion-content>
   <br>
   <img routerLink="/my-adress" style="margin:8px;" width="40px" src="assets/goback.svg" alt="">
   <br>
-<div>
-  <ion-segment (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="friends">
-      <ion-label>Collecter</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="enemies">
-      <ion-label>Livraison</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-</div>
-<div style="text-align:center;margin:10px;
+
+  <ion-toolbar class="toolbar toolbar-md">
+    <div class="toolbar-content toolbar-content-md">
+      <ion-segment class="segment segment-md ng-valid ng-touched ng-dirty" [(ngModel)]="type">
+        <ion-segment-button class="segment-button" role="button" (click)="collecter()" value="collecter">
+          Collecter
+        </ion-segment-button>
+        <ion-segment-button class="segment-button" role="button" (click)="livraison()">
+          Livraison
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </ion-toolbar>
+  <form [formGroup]="collecterForm">
+
+
+    <div *ngIf="isCollecter">
+
+      <div style="text-align:center;margin:10px;
             border-radius:6px;
             background-color:light;">
-  <ion-label >
-    Selectionner la date et l'heur slvp
-  </ion-label>
-   <!--  <ion-slides >  -->
-    <!--  Build a loop of date days-->
-    <!--  Make the button shown if clicked or not -->
-     <!-- <ion-button style="width:40%;">Lundi,02,Juill</ion-button>
-      <ion-button style="width:40%;"> Lundi,03,Juill</ion-button>
-      <ion-button style="width:40%;"> Lundi,04,Juill</ion-button>
-      <ion-button style="width:40%;" > Lundi,05,Juill</ion-button>
-      <ion-button style="width:40%;"> Lundi,06,Juill</ion-button>-->
-      <!--<ion-item>
-        <ion-label id="">Lundi,02,Juill</ion-label>
-        <ion-checkbox id=""></ion-checkbox>
-      </ion-item>
-      <ion-item>
-        <ion-label id="">Lundi,03,Juill</ion-label>
-        <ion-checkbox id=""></ion-checkbox>
-      </ion-item>
-      <ion-item>
-        <ion-label id="">Lundi,04,Juill</ion-label>
-        <ion-checkbox id=""></ion-checkbox>
-      </ion-item>-->
-   <!-- </ion-slides> -->
-</div>
-<!-- <div style="text-align:center;">
-  <ion-label>
-    Selectionner l'heure de variable of picks of delivery
-  </ion-label><br>
-  <ion-item style="margin:10px;border-radius:6px;" color="light">
-    <ion-slides > -->
-      <!--  Build a loop of date Heurs-->
-      <!--  Make the button shown if clicked or not -->
-   <!--   <ion-button style="width:40%;">09:00 - 10:00</ion-button>
-      <ion-button style="width:40%;"> 10:00 - 11:00</ion-button>
-      <ion-button style="width:40%;"> 11:00 - 12:00</ion-button>
-      <ion-button style="width:40%;" > 12:00 - 13:00</ion-button>
-      <ion-button style="width:40%;"> 13:00 - 14:00</ion-button>
-     </ion-slides>
-  </ion-item>
-  </div>-->
-   <div style="text-align:center;background-color:lightgrey;border-radius:8px;margin: 10px;">
-    <br>
-    <label style="margin: 8px;" class="input-group-text" for="">Choisie le Jour : </label>
-    <input class="form-control" type="date" (change)="test($event)" [min]="minDate"/> <br>
-    <label style="margin: 8px;" class="input-group-text" for="">Choisie l'heure : </label>
-    <input class="form-control" type="time" name="" id="" />
-    <br>
-   </div>
-  <ion-footer>
-    <ion-toolbar>
-      <ion-label for="paiment">choisie votre methode de paiment slvp</ion-label>
-      <div style="text-align:center;margin:4px;">
-        <!--<ion-input type="radio" name="COD" id="cod">Paiement à la livraison</ion-input>
-        <ion-input type="radio" name="COD" id="cod">Paiement avec Carte</ion-input>-->
-        <ion-list radio-group multiselectable="false" >
-          <ion-item>
-            <ion-label>Paiement à la livraison</ion-label>
-            <ion-radio value="cod" ></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>Payer avec carte Bancaire</ion-label>
-            <ion-radio value="carte"></ion-radio>
-          </ion-item>
-        </ion-list>
-        <!-- butto appear when the  livraison and pickup date checked-->
-          <ion-button disabled="">Payement</ion-button>
+        <ion-label>
+          Selectionner la date et l'heur slvp
+        </ion-label>
       </div>
-    </ion-toolbar>
-  </ion-footer>
+      <div style="text-align:center;background-color:lightgrey;border-radius:8px;margin: 10px;">
+        <br>
+        <label style="margin: 8px;" class="input-group-text">Choisie le Jour : </label>
+
+        <input class="form-control" type="date" [min]="minDate" [(ngModel)]="clientDate"
+          (change)="keepDateCollecte($event)" formControlName="collectDate" /> <br>
+
+        <label style="margin: 8px;" class="input-group-text">Choisie l'heure : </label>
+
+        <input class="form-control" type="time" [(ngModel)]="clientTime" (change)="keepTimeCollecte($event)"
+          formControlName="collectTime" />
+        <br>
+      </div>
+    </div>
+    <div *ngIf="isLivraison">
+      <div style="text-align:center;margin:10px;
+            border-radius:6px;
+            background-color:light;">
+        <ion-label>
+          Selectionner la date et l'heur slvp
+        </ion-label>
+      </div>
+      <div style="text-align:center;background-color:lightgrey;border-radius:8px;margin: 10px;">
+        <br>
+        <label style="margin: 8px;" class="input-group-text">Choisie le Jour : </label>
+
+        <input class="form-control" type="date" [min]="minDate" [(ngModel)]="livreurDate"
+          (change)="keepDateLivreure($event)" formControlName="livreureDate" /> <br>
+
+        <label style="margin: 8px;" class="input-group-text">Choisie l'heure : </label>
+
+        <input class="form-control" type="time" [(ngModel)]="livreurTime" (change)="keepTimeLivreure($event)"
+          formControlName="livreureTime" />
+        <br>
+      </div>
+    </div>
+
+    <ion-footer>
+      <ion-toolbar>
+        <ion-label for="paiment">choisie votre methode de paiment slvp</ion-label>
+        <div style="text-align:center;margin:4px;">
+          <!--<ion-input type="radio" name="COD" id="cod">Paiement à la livraison</ion-input>
+        <ion-input type="radio" name="COD" id="cod">Paiement avec Carte</ion-input>-->
+          <ion-list>
+            <ion-radio-group value="biff" formControlName="pay">
+              <ion-item>
+                <ion-label>Paiement à la livraison</ion-label>
+                <ion-radio value="cod" name="pay" ></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Payer avec carte Bancaire</ion-label>
+                <ion-radio value="carte" name="pay" ></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+          <!-- butto appear when the  livraison and pickup date checked-->
+          <ion-button [disabled]="collecterForm.invalid">Payement</ion-button>
+        </div>
+      </ion-toolbar>
+    </ion-footer>
+  </form>
   <br>
 </ion-content>

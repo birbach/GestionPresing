@@ -5,7 +5,7 @@
     <ion-list>
       <!-- listArticleSelectionner -->
       <span style="color:gray;margin: 6px;">Votre achat :</span>
-      <ion-toolbar style="text-align:center;">
+      <ion-toolbar style="text-align:center;" *ngIf="this.listArticleSelectedLavage.length>0">
         <ion-title size="small">LAVAGE</ion-title>
       </ion-toolbar>
       <ion-item *ngFor="let item of listArticleSelectedLavage">
@@ -16,7 +16,7 @@
         <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
         </ion-label>
       </ion-item>
-      <ion-toolbar style="text-align:center;">
+      <ion-toolbar style="text-align:center;" *ngIf="this.listArticleSelectedPassage.length>0">
         <ion-title size="small">REPASSAGE</ion-title>
       </ion-toolbar>
       <ion-item *ngFor="let item of listArticleSelectedPassage">
@@ -27,10 +27,10 @@
         <ion-label slot="end" style="font-size: 10px;color: gray;padding-left:20px;">Prix :{{item.prix}} Dh
         </ion-label>
       </ion-item>
-      <ion-toolbar style="text-align:center;">
+      <ion-toolbar style="text-align:center;" *ngIf="this.listArticleSelectedLavagePassage.length>0">
         <ion-title size="small">LAVAGE & REPASSAGE</ion-title>
       </ion-toolbar>
-      <ion-item *ngFor="let item of listArticleSelectedLavagePassage">
+      <ion-item *ngFor="let item of listArticleSelectedLavagePassage" >
         <ion-avatar>
           <img [src]="item.image" alt="">
         </ion-avatar>

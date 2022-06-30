@@ -1,5 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-collect-livraison',
@@ -8,24 +9,57 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollectLivraisonPage implements OnInit {
 
-  // dateDisabled=formatDate(new Date(),)
+  type = 'collecter';
+
   minDate: Date;
-  constructor() { }
+
+  clientDate: any;
+  livreurDate: any;
+  livreurTime: any;
+  clientTime: any;
+
+  isCollecter = true;
+  isLivraison = false;
+
+  collecterForm = this.fb.group({
+    collectDate: [, Validators.required],
+    collectTime: [, Validators.required],
+    livreureDate: [, Validators.required],
+    livreureTime: [, Validators.required],
+    pay: [, Validators.required],
+
+  });
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.minDate = new Date();
   }
 
-  segmentChanged(event){
+  collecter() {
+    this.isCollecter = true;
+    this.isLivraison = false;
+  }
+
+  livraison() {
+    this.isCollecter = false;
+    this.isLivraison = true;
+  }
+
+  keepDateCollecte(evn) {
+    this.clientDate = evn.target.value;
+  }
+
+  keepTimeCollecte(evn) {
+    this.clientTime = evn.target.value;
 
   }
 
-  test(event){
-    console.log(event.target.value);
+  keepDateLivreure(env) {
+    this.livreurDate = env.target.value;
   }
+
+  keepTimeLivreure(env) {
+    this.livreurTime = env.target.value;
+  }
+
 
 }
-
-
-
-

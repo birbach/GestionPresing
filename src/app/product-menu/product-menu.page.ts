@@ -11,7 +11,7 @@ import { ArticleService } from '../services/article.service';
   styleUrls: ['./product-menu.page.scss'],
 })
 export class ProductMenuPage implements OnInit {
-  nbrachat = 0;
+
   // eslint-disable-next-line @typescript-eslint/ban-types
   isLavage: Boolean = true;
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -172,7 +172,7 @@ export class ProductMenuPage implements OnInit {
   plusLavage(idArticle: any) {
     this.articleLavage.forEach(element => {
       if (idArticle === element.id) {
-         element.quantity++;
+        element.quantity++;
         this.listArticleSelectionnerLavage.push(element);
       }
     });
@@ -274,8 +274,8 @@ export class ProductMenuPage implements OnInit {
     this.articleService.getArticleByService(1).subscribe(data => {
 
       this.articleLavage = Object.values(data);
-      this.articleLavage.forEach(element=>{
-        element.quantity=0;
+      this.articleLavage.forEach(element => {
+        element.quantity = 0;
       });
 
     }, err => {
@@ -283,16 +283,16 @@ export class ProductMenuPage implements OnInit {
 
     this.articleService.getArticleByService(2).subscribe(data => {
       this.articlePassage = Object.values(data);
-      this.articlePassage.forEach(element=>{
-        element.quantity=0;
+      this.articlePassage.forEach(element => {
+        element.quantity = 0;
       });
     }, err => {
     });
 
     this.articleService.getArticleByService(3).subscribe(data => {
       this.articleLavagePassage = Object.values(data);
-      this.articleLavagePassage.forEach(element=>{
-        element.quantity=0;
+      this.articleLavagePassage.forEach(element => {
+        element.quantity = 0;
       });
     }, err => {
     });
